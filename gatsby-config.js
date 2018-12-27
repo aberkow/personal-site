@@ -1,6 +1,11 @@
 const path = require('path');
+const dotenv = require('dotenv');
 
-const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } = require('./.env');
+if (process.env.ENVIRONMENT !== 'production') {
+  dotenv.config();
+}
+
+const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } = process.env;
 
 module.exports = {
   siteMetadata: {
